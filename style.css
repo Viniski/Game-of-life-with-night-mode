@@ -1,0 +1,128 @@
+:root {
+    --color-bg: #fff;
+    --color-main: #000;
+    --margin-top: calc((100vh - 500px) / 2);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: var(--color-bg);
+    color: var(--color-main);
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+canvas {
+    height: 500px;
+    width: 500px;
+    display: block;
+    margin: auto;
+    margin-top: var(--margin-top);
+}
+
+button {
+    background-color: #000;
+    border: solid 4px #fff;
+    border-radius: 50px;
+    cursor: pointer;
+    height: 100px;
+    outline-width: 5px;
+    position: fixed;
+    top: 50px;
+    right: 50px;
+    width: 200px;
+}
+
+.icon {
+    background-color: grey;
+    border-radius: 100%;
+    content: "";
+    display: block;
+    height: 60px;
+    margin: 16px 25px;
+    position: relative;
+    transition: background-color 0.3s, transform 0.3s;
+    width: 60px;
+}
+
+span {
+    bottom: 100%;
+    color: var(--color-main);
+    font-size: 20px;
+    left: 50%;
+    padding: 12px 0;
+    position: absolute;
+    transform: translateX(-50%);
+    width: 100%;
+}
+
+/* LIGHT MODE */
+
+body.light {
+    --color-bg: #fff;
+    --color-main: #000;
+}
+
+body.light .icon {
+    background: grey;
+    transform: translateX(0);
+}
+
+body.light .icon::after {
+    content: none;
+
+}
+
+/* DARK MODE */
+
+body.dark {
+    --color-bg: #000;
+    --color-main: #fff;
+}
+
+body.dark .icon {
+    background: yellow;
+    transform: translateX(85px);
+}
+
+body.dark .icon::after {
+    background-color: #000;
+    border-radius: 100%;
+    content: "";
+    display: block;
+    height: 50px;
+    left: -5px;
+    position: absolute;
+    top: 5px;
+    width: 45px;
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        --color-bg: #000;
+        --color-main: #fff;
+    }
+
+    body .icon {
+        background: yellow;
+        transform: translateX(85px);
+    }
+
+    body .icon::after {
+        background-color: #000;
+        border-radius: 100%;
+        content: "";
+        display: block;
+        height: 50px;
+        left: -5px;
+        position: absolute;
+        top: 5px;
+        width: 45px;
+    }
+}
