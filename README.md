@@ -10,6 +10,7 @@ We can run the game in light and dark mode, which I obtained using a CSS variabl
 * CSS
 
 ##Demo
+
 https://viniski.github.io/Game-of-life-with-night-mode/
 
 ![](gameOfLife.png)
