@@ -1,128 +1,184 @@
 :root {
-    --color-bg: #fff;
-    --color-main: #000;
-    --margin-top: calc((100vh - 500px) / 2);
+  --color-bg: #fff;
+  --color-main: #000;
 }
 
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    background: var(--color-bg);
-    color: var(--color-main);
-    height: 100vh;
-    width: 100vw;
-    overflow: hidden;
+  max-width: 1000px;
+  width: 80%;
+  margin: 5vh auto;
+  font-family: Helvetica, sans-serif;
+  background: var(--color-bg);
+  color: var(--color-main);
 }
 
-canvas {
-    height: 500px;
-    width: 500px;
-    display: block;
-    margin: auto;
-    margin-top: var(--margin-top);
+header {
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  font-size: 32px;
+  text-align: center;
 }
 
 button {
-    background-color: #000;
-    border: solid 4px #fff;
-    border-radius: 50px;
-    cursor: pointer;
-    height: 100px;
-    outline-width: 5px;
-    position: fixed;
-    top: 50px;
-    right: 50px;
-    width: 200px;
-}
-
-.icon {
-    background-color: grey;
-    border-radius: 100%;
-    content: "";
-    display: block;
-    height: 60px;
-    margin: 16px 25px;
-    position: relative;
-    transition: background-color 0.3s, transform 0.3s;
-    width: 60px;
+  position: relative;
+  height: 50px;
+  width: 100px;
+  margin: 50px auto 0;
+  outline-width: 2.5px;
+  border: solid 2px #fff;
+  border-radius: 25px;
+  background-color: #000;
+  cursor: pointer;
 }
 
 span {
-    bottom: 100%;
-    color: var(--color-main);
-    font-size: 20px;
-    left: 50%;
-    padding: 12px 0;
-    position: absolute;
-    transform: translateX(-50%);
-    width: 100%;
+  position: absolute;
+  bottom: 110%;
+  width: 100%;
+  font-size: 16px;
+  color: var(--color-main);
+  transform: translateX(-50%);
 }
 
-/* LIGHT MODE */
+.icon {
+  display: block;
+  position: relative;
+  content: "";
+  height: 30px;
+  width: 30px;
+  margin: 8px 12.5px;
+  border-radius: 100%;
+  background-color: grey;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+canvas {
+  display: block;
+  width: 70vw;
+  height: 70vw;
+  margin: 15vh auto;
+}
+
+/* Light Mode */
 
 body.light {
-    --color-bg: #fff;
-    --color-main: #000;
+  --color-bg: #fff;
+  --color-main: #000;
 }
 
 body.light .icon {
-    background: grey;
-    transform: translateX(0);
+  background: grey;
+  transform: translateX(0);
 }
 
 body.light .icon::after {
-    content: none;
-
+  content: none;
 }
 
-/* DARK MODE */
+/* Dark Mode */
 
 body.dark {
-    --color-bg: #000;
-    --color-main: #fff;
+  --color-bg: #000;
+  --color-main: #fff;
 }
 
 body.dark .icon {
-    background: yellow;
-    transform: translateX(85px);
+  background: yellow;
+  transform: translateX(42.5px);
 }
 
 body.dark .icon::after {
-    background-color: #000;
-    border-radius: 100%;
-    content: "";
-    display: block;
-    height: 50px;
-    left: -5px;
-    position: absolute;
-    top: 5px;
-    width: 45px;
+  display: block;
+  position: absolute;
+  top: 2.5px;
+  left: -2.5px;
+  width: 22.5px;
+  height: 25px;
+  content: "";
+  border-radius: 100%;
+  background-color: #000;
 }
 
 @media (prefers-color-scheme: dark) {
-    body {
-        --color-bg: #000;
-        --color-main: #fff;
-    }
+  body {
+    --color-bg: #000;
+    --color-main: #fff;
+  }
 
-    body .icon {
-        background: yellow;
-        transform: translateX(85px);
-    }
+  body .icon {
+    background: yellow;
+    transform: translateX(42.5px);
+  }
 
-    body .icon::after {
-        background-color: #000;
-        border-radius: 100%;
-        content: "";
-        display: block;
-        height: 50px;
-        left: -5px;
-        position: absolute;
-        top: 5px;
-        width: 45px;
-    }
+  body.dark .icon::after {
+    display: block;
+    position: absolute;
+    top: 2.5px;
+    left: -2.5px;
+    width: 22.5px;
+    height: 25px;
+    content: "";
+    border-radius: 100%;
+    background-color: #000;
+  }
+}
+
+@media (max-height: 768px) and (orientation: landscape) {
+  body {
+    margin: 10vh auto;
+  }
+
+  header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  button {
+    margin: 0;
+  }
+}
+
+@media (min-width: 768px) {
+  canvas {
+    width: 50vh;
+    height: 50vh;
+    margin: 10vh auto;
+  }
+
+  header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  h1 {
+    font-size: 36px;
+  }
+
+  button {
+    margin: 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  h1 {
+    font-size: 36px;
+  }
+
+  canvas {
+    width: 70vh;
+    height: 70vh;
+  }
 }
