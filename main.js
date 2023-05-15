@@ -8,7 +8,7 @@ let backgroundVariables;
 
 if (darkUserPrefers) {
   blockVariables = "white";
-  backgroundVariables = "block";
+  backgroundVariables = "black";
 } else {
   blockVariables = "black";
   backgroundVariables = "white";
